@@ -46,7 +46,7 @@ function download(data) {
 		fs.makeTree(data.albumtitle);
 	}
 	console.log('Downloading ...');
-	var args = ['-v', '1', '-i', data.streamPath, '-c', 'copy', '-bsf:a', 'aac_adtstoaac', data.albumtitle + '/' + data.title + '.aac'];
+	var args = ['-v', '1', '-i', data.streamPath, '-acodec', 'libaac', '-bsf:a', 'aac_adtstoasc', data.albumtitle + '/' + data.title + '.aac'];
 	console.log('ffmpeg ' + args.join(' '));
 	execFile('ffmpeg', args, null, function(err, stdout, stderr) {
 		console.log(stdout);
